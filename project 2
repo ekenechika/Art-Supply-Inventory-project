@@ -1,0 +1,61 @@
+#include <iostream>
+#include <string>
+
+// Define the Color structure
+struct Color {
+    std::string name;
+    std::string hue;
+    int saturation;
+    int value;
+
+    Color(std::string name, std::string hue, int saturation, int value)
+        : name(name), hue(hue), saturation(saturation), value(value) {}
+};
+
+// Define the Item structure
+struct Item {
+    std::string name;
+    double price;
+    std::string additionalInfo;
+
+    Item(std::string name, double price, std::string additionalInfo = "")
+        : name(name), price(price), additionalInfo(additionalInfo) {}
+
+    // Function to get additional information
+    std::string getAdditionalInfo() {
+        return additionalInfo;
+    }
+};
+
+int main() {
+    // Create Color objects
+    Color blueColor("Blue", "Cool", 50, 80);
+    Color siennaColor("Sienna", "Warm", 60, 70);
+
+    // Create Item objects
+    Item basicBluePaint("Basic Blue Paint", 6.0);
+    Item specialSienna("Special Sienna", 24.0, "example.com/specialsienna");
+
+    // Display information
+    std::cout << "Basic Blue Paint:\n";
+    std::cout << "Name: " << basicBluePaint.name << "\n";
+    std::cout << "Price: $" << basicBluePaint.price << "\n";
+
+    if (!basicBluePaint.getAdditionalInfo().empty()) {
+        std::cout << "Additional Information: " << basicBluePaint.getAdditionalInfo() << "\n";
+    } else {
+        std::cout << "No additional information available.\n";
+    }
+
+    std::cout << "\nSpecial Sienna:\n";
+    std::cout << "Name: " << specialSienna.name << "\n";
+    std::cout << "Price: $" << specialSienna.price << "\n";
+
+    if (!specialSienna.getAdditionalInfo().empty()) {
+        std::cout << "Additional Information: " << specialSienna.getAdditionalInfo() << "\n";
+    } else {
+        std::cout << "No additional information available.\n";
+    }
+
+    return 0;
+}
